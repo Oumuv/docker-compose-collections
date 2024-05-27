@@ -1,0 +1,11 @@
+version: '3.2'
+services:
+  redis:
+    container_name: redis
+    image: 'redis:alpine'
+    ports:
+      - "6379:6379"
+    command: redis-server /usr/local/etc/redis/redis.conf
+    volumes:
+      - ./volumes/data:/data #挂载数据目录到本地
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
